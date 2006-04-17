@@ -35,8 +35,7 @@ Recursos catalanes para SeaMonkey.
 Kataloñskie pliki jêzykowe dla SeaMonkeya.
 
 %prep
-%setup -q -c -T
-unzip %{SOURCE0}
+%setup -qc
 unzip -o %{SOURCE1}
 install %{SOURCE2} .
 ./gen-installed-chrome.sh locale chrome/{AD,ca-AD,ca-unix,enigmail-ca-AD}.jar \
