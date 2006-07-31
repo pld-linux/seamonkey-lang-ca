@@ -1,15 +1,18 @@
+%define	_lang	ca
+%define	_reg	AD
+%define _lare	%{_lang}-%{_reg}
 Summary:	Catalan resources for SeaMonkey
 Summary(ca):	Recursos catalans per a SeaMonkey
 Summary(es):	Recursos catalanes para SeaMonkey
 Summary(pl):	Kataloñskie pliki jêzykowe dla SeaMonkeya
-Name:		seamonkey-lang-ca
-Version:	1.0
+Name:		seamonkey-lang-%{_lang}
+Version:	1.0.2
 Release:	1
 License:	GPL
 Group:		X11/Applications/Networking
-Source0:	ftp://ftp.softcatala.org/pub/softcatala/seamonkey/%{version}/langpack/seamonkey-%{version}.ca-AD.langpack.xpi
-# Source0-md5:	660564467a928bee25442fe6133d0cc8
-Source1:	http://www.mozilla-enigmail.org/downloads/lang/0.9x/enigmail-ca-AD-0.9x.xpi
+Source0:	ftp://ftp.softcatala.org/pub/softcatala/seamonkey/%{version}/langpack/seamonkey-%{version}.%{_lare}.langpack.xpi
+# Source0-md5:	c9f402dd4ce76d3a0fa989014b661d24
+Source1:	http://www.mozilla-enigmail.org/downloads/lang/0.9x/enigmail-%{_lare}-0.9x.xpi
 # Source1-md5:	2f7b87d93cb4fcb831690ae7438e4f0e
 Source2:	gen-installed-chrome.sh
 URL:		http://www.softcatala.org/wiki/SeaMonkey
@@ -36,17 +39,19 @@ Kataloñskie pliki jêzykowe dla SeaMonkeya.
 
 %prep
 %setup -qc
-unzip -o %{SOURCE1}
+%{__unzip} -o -qq %{SOURCE1}
 install %{SOURCE2} .
-./gen-installed-chrome.sh locale chrome/{AD,ca-AD,ca-unix,enigmail-ca-AD}.jar \
-	> lang-ca-installed-chrome.txt
+./gen-installed-chrome.sh locale \
+	chrome/{%{_reg},%{_lare},%{_lang}-unix,enigmail-%{_lare}}.jar \
+		> lang-%{_lang}-installed-chrome.txt
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_chromedir}
 
-install chrome/{AD,ca-AD,ca-unix,enigmail-ca-AD}.jar $RPM_BUILD_ROOT%{_chromedir}
-install lang-ca-installed-chrome.txt $RPM_BUILD_ROOT%{_chromedir}
+install chrome/{%{_reg},%{_lare},%{_lang}-unix,enigmail-%{_lare}}.jar \
+	$RPM_BUILD_ROOT%{_chromedir}
+install lang-%{_lang}-installed-chrome.txt $RPM_BUILD_ROOT%{_chromedir}
 cp -r searchplugins defaults $RPM_BUILD_ROOT%{_datadir}/seamonkey
 
 %clean
@@ -60,11 +65,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%{_chromedir}/AD.jar
-%{_chromedir}/ca-AD.jar
-%{_chromedir}/ca-unix.jar
-%{_chromedir}/enigmail-ca-AD.jar
-%{_chromedir}/lang-ca-installed-chrome.txt
+%{_chromedir}/%{_reg}.jar
+%{_chromedir}/%{_lare}.jar
+%{_chromedir}/%{_lang}-unix.jar
+%{_chromedir}/enigmail-%{_lare}.jar
+%{_chromedir}/lang-%{_lang}-installed-chrome.txt
 %{_datadir}/seamonkey/searchplugins/*
-%{_datadir}/seamonkey/defaults/messenger/AD
-%{_datadir}/seamonkey/defaults/profile/AD
+%{_datadir}/seamonkey/defaults/messenger/%{_reg}
+%{_datadir}/seamonkey/defaults/profile/%{_reg}
