@@ -6,12 +6,12 @@ Summary(ca):	Recursos catalans per a SeaMonkey
 Summary(es):	Recursos catalanes para SeaMonkey
 Summary(pl):	Kataloñskie pliki jêzykowe dla SeaMonkeya
 Name:		seamonkey-lang-%{_lang}
-Version:	1.0.7
+Version:	1.1
 Release:	1
 License:	GPL
 Group:		X11/Applications/Networking
 Source0:	ftp://ftp.softcatala.org/pub/softcatala/seamonkey/%{version}/langpack/seamonkey-%{version}.%{_lare}.langpack.xpi
-# Source0-md5:	037439b503a614a4d6859ecc749b02ca
+# Source0-md5:	9eb5a01b492839d445a3feaa042d06e7
 Source1:	http://www.mozilla-enigmail.org/downloads/lang/0.9x/enigmail-%{_lare}-0.9x.xpi
 # Source1-md5:	2f7b87d93cb4fcb831690ae7438e4f0e
 Source2:	gen-installed-chrome.sh
