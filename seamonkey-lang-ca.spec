@@ -2,9 +2,9 @@
 %define	_reg	AD
 %define _lare	%{_lang}-%{_reg}
 Summary:	Catalan resources for SeaMonkey
-Summary(ca):	Recursos catalans per a SeaMonkey
-Summary(es):	Recursos catalanes para SeaMonkey
-Summary(pl):	Kataloñskie pliki jêzykowe dla SeaMonkeya
+Summary(ca.UTF-8):   Recursos catalans per a SeaMonkey
+Summary(es.UTF-8):   Recursos catalanes para SeaMonkey
+Summary(pl.UTF-8):   KataloÅ„skie pliki jÄ™zykowe dla SeaMonkeya
 Name:		seamonkey-lang-%{_lang}
 Version:	1.1
 Release:	1
@@ -29,14 +29,14 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Catalan resources for SeaMonkey.
 
-%description -l ca
+%description -l ca.UTF-8
 Recursos catalans per a SeaMonkey.
 
-%description -l es
+%description -l es.UTF-8
 Recursos catalanes para SeaMonkey.
 
-%description -l pl
-Kataloñskie pliki jêzykowe dla SeaMonkeya.
+%description -l pl.UTF-8
+KataloÅ„skie pliki jÄ™zykowe dla SeaMonkeya.
 
 %prep
 %setup -qc
