@@ -10,12 +10,12 @@ Version:	1.1.8
 Release:	1
 License:	GPL
 Group:		X11/Applications/Networking
-Source0:	ftp://ftp.softcatala.org/pub/softcatala/seamonkey/%{version}/langpack/seamonkey-%{version}.%{_lare}.langpack.xpi
+Source0:	http://releases.mozilla.org/pub/mozilla.org/seamonkey/releases/%{version}/contrib-localized/seamonkey-%{version}.%{_lare}.langpack.xpi
 # Source0-md5:	74bca0656f23c992f2055e57e996053a
 Source1:	http://www.mozilla-enigmail.org/download/release/0.95/enigmail-%{_lare}-0.95.xpi
 # Source1-md5:	81b64164c89ba771886f1e2c0d8d7044
 Source2:	gen-installed-chrome.sh
-URL:		http://www.softcatala.org/wiki/SeaMonkey
+URL:		http://www.seamonkey-project.org/
 BuildRequires:	unzip
 Requires(post,postun):	seamonkey >= %{version}
 Requires(post,postun):	textutils
